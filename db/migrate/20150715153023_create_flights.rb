@@ -5,7 +5,7 @@ class CreateFlights < ActiveRecord::Migration
       t.integer :person_id
       t.date :date
       t.integer :flight_type_id
-      t.string :time_fly
+      t.integer :time_fly
       t.string :km_start
       t.string :km_end
       t.integer :fuel_charged
