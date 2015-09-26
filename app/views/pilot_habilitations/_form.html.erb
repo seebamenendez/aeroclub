@@ -1,0 +1,42 @@
+<h3>Guardar habilitacion piloto
+   <small>Llene el formulario con los datos necesarios del piloto</small>
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+   <div class="panel-body">
+      <%= form_for pilot_habilitation, html: {class: 'form-horizontal'} do |f| %>
+         <%= f.hidden_field :person_id, value: @pilot.id %>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha de expedicion</label>
+            <div class="col-lg-10">
+              <%= f.date_select :date_start, :order => [:day, :month, :year] %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha de vencimiento</label>
+            <div class="col-lg-10">
+              <%= f.date_select :date_expiration, :order => [:day, :month, :year] %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Estado</label>
+            <div class="col-lg-10">
+              <strong>Activo?</strong>
+                  <%= f.check_box :status, class: 'form-control' %>
+            </div>
+         </div>
+
+
+         <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+         		<%= f.submit 'Guardar Habilitacion', class: 'btn btn-success'%>
+         		<% if pilot_habilitation.new_record? %>
+         		  <%= link_to 'Volver', pilot_habilitation_path, class: 'btn btn-default' %>
+         		<% else %>
+         		  <%= link_to 'Volver', pilot_habilitation_path(@pilot), class: 'btn btn-default' %>
+         		<% end %>
+         	</div>
+         </div>
+      <% end %>
+   </div>
+</div>

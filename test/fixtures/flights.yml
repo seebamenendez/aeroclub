@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plane_id: 1
+  person_id: 1
+  date: 2015-07-15
+  flight_type_id: 1
+  time_fly: MyString
+  km_start: MyString
+  km_end: MyString
+  fuel_charged: 1
+  status: 1
+
+two:
+  plane_id: 1
+  person_id: 1
+  date: 2015-07-15
+  flight_type_id: 1
+  time_fly: MyString
+  km_start: MyString
+  km_end: MyString
+  fuel_charged: 1
+  status: 1

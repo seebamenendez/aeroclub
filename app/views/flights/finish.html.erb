@@ -1,0 +1,92 @@
+<h3>Detalles de
+   <small><%= @flight.plane_id %></small>
+</h3>
+
+<div class="">
+   <div class="col-xs-6 panel">
+     <div class="panel-heading">Detalles del vuelo</div>
+     <table id="plane" style="clear: both" class="table table-bordered table-striped">
+        <tbody>
+           <tr>
+              <td width="35%">Avion</td>
+              <td width="65%"><strong><%= @flight.plane.name %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Tipo de vuelo</td>
+              <td width="65%"><strong><%= @flight.flight_type.name_flight %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Fecha</td>
+              <td width="65%"><strong><%= @flight.date %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Combustible cargado</td>
+              <td width="65%"><strong><%= @flight.fuel_charged %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Estado</td>
+              <td width="65%"><strong><% if @flight.status %></strong>
+                    <span><strong>Activo</strong></span>
+                  <% else %>
+                    <span><strong>Deshabilitado</strong></span>
+                  <% end %>
+            </td>
+           </tr>
+           <tr>
+              <td width="35%">Piloto</td>
+              <td width="65%"><strong><%= @flight.try(:pilot).try(:complete_name) %></strong>
+              </td>
+           </tr>
+            <tr>
+              <td width="35%">Importe</td>
+              <td width="65%"><strong><%= @flight.flight_type.price %></strong>
+              </td>
+           </tr>
+        </tbody>
+     </table>
+    <%= link_to 'Volver', flights_path, class: 'btn btn-default' %>
+  </div>
+</div>
+
+
+
+  <div class="col-xs-6 panel">
+    <div class="panel-heading">Ingrese los datos faltantes del vuelo</div>
+        <div class="panel-body">
+            <%= form_for @flight, html: {class: 'form-horizontal'} do |f| %>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Tiempo volado(minutos)</label>
+                  <div class="col-lg-10">
+                    <%= f.text_field :time_fly, placeholder: 'Minutos volados', class: 'form-control', required:'required' %>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Km salida</label>
+                  <div class="col-lg-10">
+                    <%= f.text_field :km_start, placeholder: 'Km salida', class: 'form-control', required:'required' %>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Km llegada</label>
+                  <div class="col-lg-10">
+                    <%= f.text_field :km_end, placeholder: 'Km llegada', class: 'form-control' %>
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10">
+                  <input type="submit" value="Guardar" class="btn btn-lg btn-success">
+                </div>
+              </div>
+            </div>
+            <% end %>
+      
+  </div>
+
+<div class="row clearfix">
+  <div class="col-xs-6 pull-left"></div>
+  <div class="col-xs-3 pull-right"></div>
+</div>

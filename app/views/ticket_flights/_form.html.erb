@@ -1,0 +1,64 @@
+<!-- START panel-->
+<div class="panel panel-default">
+
+   <div class="panel-body">
+      <%= form_for tickets_flights, html: {class: 'form-horizontal'} do |f| %>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha</label>
+            <div class="col-lg-10">
+              <td width="65%"><strong><%= @ticket.flight.date %></strong>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Avion</label>
+            <div class="col-lg-10">
+             <%= f.select :plane_id, options_from_collection_for_select(Plane.all, :id, :name) %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Tipo de vuelo</label>
+            <div class="col-lg-10">
+              <%= f.select :flight_type_id, options_from_collection_for_select(FlightType.all, :id, :name_flight) %>
+             </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Precio</label>
+            <div class="col-lg-10">
+              <%= f.text_field :price, placeholder: 'Precio', class: 'form-control' %>
+            </div>
+         </div>
+                  <div class="form-group">
+            <label class="col-lg-2 control-label">Kilometros de salida</label>
+            <div class="col-lg-10">
+              <%= f.text_field :km_start, placeholder: 'Kilometros salida', class: 'form-control' %>
+            </div>
+         </div>
+                  <div class="form-group">
+            <label class="col-lg-2 control-label">Kilometros de llegada</label>
+            <div class="col-lg-10">
+              <%= f.text_field :km_end, placeholder: 'Kilometros llegada', class: 'form-control' %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Combustible cargado</label>
+            <div class="col-lg-10">
+              <td width="65%"><strong><%= @ticket.flight.fuel_charged %></strong>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Minutos volados</label>
+            <div class="col-lg-10">
+              <%= f.text_field :time_fly, placeholder: 'Minutos volados', class: 'form-control' %>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+              <%= f.submit 'Guardar', class: 'btn btn-success'%>
+            </div>
+            <div class="col-lg-offset-2 col-lg-10">
+              <%= link_to 'Volver', ticket_flights_path, class: 'btn btn-default' %>
+            </div>
+         </div>
+      <% end %>
+   </div>
+</div>

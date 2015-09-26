@@ -1,0 +1,41 @@
+<h3>Crear nuevo vuelo
+   <small>Llene el formulario con los datos necesarios para crear un vuelo</small>
+</h3>
+
+<!-- START panel-->
+<div class="panel panel-default">
+   <div class="panel-heading">Crear vuelo</div>
+   <div class="panel-body">
+      <%= form_for flights, html: {class: 'form-horizontal'} do |f| %>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Avion</label>
+            <div class="col-lg-10">
+             <%= f.select :plane_id, options_from_collection_for_select(Plane.where(status: true), :id, :complete_plane) %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Tipo de vuelo</label>
+            <div class="col-lg-10">
+              <%= f.select :flight_type_id, options_from_collection_for_select(FlightType.all, :id, :name_flight) %>
+             </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha</label>
+            <div class="col-lg-10">
+              <%= f.date_select :date, :order => [:day, :month, :year] %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Combustible que se cargo</label>
+            <div class="col-lg-10">
+              <%= f.text_field :fuel_charged, placeholder: 'Combustible cargado', class: 'form-control', required:'required' %>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+            <%= f.submit 'Guardar', class: 'btn btn-success'%>
+            </div>
+         </div>
+      <% end %>
+   </div>
+</div>

@@ -1,0 +1,25 @@
+<h3>Detalles del usuario</h3>
+
+<div class="panel">
+   <div class="panel-heading">Detalles del service</div>
+   <table id="plane" style="clear: both" class="table table-bordered table-striped">
+      <tbody>
+         <tr>
+            <td width="35%">Nombre usuario</td>
+            <td width="65%"><strong><%= @user.email %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Contraseña</td>
+            <td width="65%"><strong><%= @user.encrypted_password %></strong>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<div>
+   <a href="<%= edit_user_path(@user) %>" class='btn btn-success'>Modificar</a>
+   <%= link_to 'Eliminar', @user, method: :delete, data: {confirm: "Estas seguro que quiere eliminar?"}, class: 'btn btn-danger' %>
+   <%= link_to 'Volver', users_path, class: 'btn btn-default' %>
+
+</div>

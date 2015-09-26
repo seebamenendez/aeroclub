@@ -1,0 +1,87 @@
+<h3>Detalles de
+   <small><%= @flight.plane_id %></small>
+</h3>
+
+<div class="">
+   <div class="col-xs-6 panel">
+     <div class="panel-heading">Detalles del vuelo</div>
+     <table id="plane" style="clear: both" class="table table-bordered table-striped">
+        <tbody>
+           <tr>
+              <td width="35%">Avion</td>
+              <td width="65%"><strong><%= @flight.plane.name %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Tipo de vuelo</td>
+              <td width="65%"><strong><%= @flight.flight_type.name_flight %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Fecha</td>
+              <td width="65%"><strong><%= @flight.date %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Combustible cargado</td>
+              <td width="65%"><strong><%= @flight.fuel_charged %></strong>
+              </td>
+           </tr>
+           <tr>
+              <td width="35%">Estado</td>
+              <td width="65%"><strong><%= @flight.status %></strong>
+            </td>
+           </tr>
+           <tr>
+              <td width="35%">Piloto</td>
+              <td width="65%"><strong><%= @flight.try(:pilot).try(:complete_name) %></strong>
+              </td>
+           </tr>
+        </tbody>
+     </table>
+     
+     <a href="<%= edit_flight_path(@flight) %>" class='btn btn-success'>Modificar</a>
+    <% if @flight.Activo? %>
+      <%= link_to 'Deshabilitar', flight_deshabilitar_path(@flight.id), method: :put, data: {confirm: "Estas seguro que quiere deshabilitar?"}, class: 'btn btn-info' %>
+    <% end %>
+    <% if @flight.Deshabilitado? %>
+      <%= link_to 'Activar', flight_activar_path(@flight.id), method: :put, data: {confirm: "Estas seguro que quiere activar?"}, class: 'btn btn-info' %>
+    <% end %>
+    <%= link_to 'Eliminar', @flight, method: :delete, data: {confirm: "Estas seguro que quiere eliminar?"}, class: 'btn btn-danger' %>
+    <%= link_to 'Volver', flights_path, class: 'btn btn-default' %>
+  </div>
+  <div class="col-xs-6 panel">
+    <div class="panel-heading">Personas del vuelo</div>
+     <table id="plane" style="clear: both" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @people.each do |person| %>
+           <tr>
+              <td>
+                <%= form_tag flight_remove_person_path(params[:id], person.id) do %>
+                  <button type="submit">Eliminar</button>
+                <% end %>
+              </td>
+              <td><%= person.complete_name %></td>
+           </tr>
+          <% end %>
+        </tbody>
+     </table>
+     
+      <%= link_to 'Agregar Personas', flight_add_people_path, class: 'btn btn-success' %>
+  </div>
+</div>
+
+<div class="row clearfix">
+  <div class="col-xs-6 pull-left">
+    
+  </div>
+  <div class="col-xs-3 pull-right">
+   
+  </div>
+</div>

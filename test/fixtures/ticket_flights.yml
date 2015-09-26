@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flight_id: 1
+  person_id: 1
+  plane_id: 1
+  flight_type_id: 1
+  price: 1
+  status: 1
+
+two:
+  flight_id: 1
+  person_id: 1
+  plane_id: 1
+  flight_type_id: 1
+  price: 1
+  status: 1

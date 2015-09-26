@@ -1,0 +1,41 @@
+<div class="block-center mt-xl wd-xl">
+   <!-- START panel-->
+   <div class="panel panel-dark panel-flat">
+      <div class="panel-heading text-center">
+         <a href="#">
+            <img src="<%= image_path('angle/aeroclub.jpg') %>" alt="Image" width="240" height="80" class="block-center img-rounded" />
+         </a>
+      </div>
+      <div class="panel-body">
+         <p class="text-center pv">Registrarse para obtener acceso instantáneo.</p>
+         <form role="form" data-parsley-validate="" novalidate="" class="mb-lg">
+            <div class="form-group has-feedback">
+               <label for="signupInputEmail1" class="text-muted">Email</label>
+               <input id="signupInputEmail1" type="email" placeholder="Ingresar email" autocomplete="off" required="required" class="form-control" />
+               <span class="fa fa-envelope form-control-feedback text-muted"></span>
+            </div>
+            <div class="form-group has-feedback">
+               <label for="signupInputPassword1" class="text-muted">Contraseña</label>
+               <input id="signupInputPassword1" type="password" placeholder="Contraseña" autocomplete="off" required="required" class="form-control" />
+               <span class="fa fa-lock form-control-feedback text-muted"></span>
+            </div>
+            <div class="form-group has-feedback">
+               <label for="signupInputRePassword1" class="text-muted">Vuelva a escribir la contraseña</label>
+               <input id="signupInputRePassword1" type="password" placeholder="Vuelva a escribir la contraseña" autocomplete="off" required="required" data-parsley-equalto="#signupInputPassword1" class="form-control" />
+               <span class="fa fa-lock form-control-feedback text-muted"></span>
+            </div>
+            <div class="clearfix">
+               <div class="checkbox c-checkbox pull-left mt0">
+                  <label>
+                     <input type="checkbox" value="" required="required" name="agreed" />
+                     <span class="fa fa-check"></span>Estoy de acuerdo con los <a href="#">términos y condiciones</a>
+                  </label>
+               </div>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary mt-lg">Crear cuenta</button>
+         </form>
+         <p class="pt-lg text-center">Tenes una cuenta?</p><a href="/pages/login" class="btn btn-block btn-default">Registrarse</a>
+      </div>
+   </div>
+   <!-- END panel-->
+</div>

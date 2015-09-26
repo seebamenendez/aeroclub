@@ -1,0 +1,62 @@
+<h3>Detalles de la factura</h3>
+
+<div class="panel">
+   <div class="panel-heading">Detalles de la factura vuelo</div>
+   <table id="plane" style="clear: both" class="table table-bordered table-striped">
+      <tbody>
+         <tr>
+            <td width="35%">Fecha vuelo</td>
+            <td width="65%"><strong><%= @ticket.flight.date %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Avion</td>
+            <td width="65%"><strong><%= @ticket.plane.name %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Tipo de vuelo</td>
+            <td width="65%"><strong><%= @ticket.flight_type.name_flight %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Precio</td>
+            <td width="65%"><strong><%= @ticket.price %></strong>
+            </td>
+         </tr>
+          <tr>
+            <td width="35%">Km salida</td>
+            <td width="65%"><strong><%= @ticket.flight.km_start %></strong>
+            </td>
+         </tr>
+          <tr>
+            <td width="35%">Km llegada</td>
+            <td width="65%"><strong><%= @ticket.flight.km_end %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Combustible cargado</td>
+            <td width="65%"><strong><%= @ticket.flight.fuel_charged %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Estado</td>
+            <td width="65%"><strong><%= @ticket.status %></strong>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+
+<a href="<%= edit_ticket_flight_path(@ticket) %>" class='btn btn-success'>Modificar</a>
+    <% if @ticket.Activo? %>
+      <%= link_to 'Deshabilitar', ticket_flights_deshabilitar_path(@ticket.id), method: :put, data: {confirm: "Estas seguro que quiere deshabilitar?"}, class: 'btn btn-info' %>
+    <% end %>
+    <% if @ticket.Deshabilitado? %>
+      <%= link_to 'Activar', ticket_flights_activar_path(@ticket.id), method: :put, data: {confirm: "Estas seguro que quiere activar?"}, class: 'btn btn-info' %>
+    <% end %>
+
+<%= link_to 'Eliminar', @ticket, method: :delete, data: {confirm: "Estas seguro que quiere eliminar?"}, class: 'btn btn-danger' %>
+<%= link_to 'Volver', ticket_flights_path, class: 'btn btn-default' %>
+
+

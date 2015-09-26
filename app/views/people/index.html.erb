@@ -1,0 +1,87 @@
+<div class="row">
+   <div class="col-lg-12">
+      <h3>Personas
+         <small>Listado de personas del sistema</small>
+      </h3>
+
+      <%= form_tag(people_path, method: 'get') do  %>
+        <%= text_field_tag :q,'',  placeholder: 'Busque por nombre, apellido y cedula', :size => 40 %>
+        <%= button_tag 'Buscar', type: 'submit',  class: 'btn btn-info btn-lg' %>
+      <% end %>
+
+
+   </div>
+</div>
+<!-- START row-->
+<div class="row">
+   <div class="col-lg-12">
+      <!-- START panel-->
+      <div class="panel panel-default">
+         <div class="panel-body">
+            <!-- START table-responsive-->
+            <div class="table-responsive">
+               <table class="table table-striped table-bordered table-hover">
+                  <thead>
+                     <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cedula</th>
+                        <th>Email</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Edad</th>
+                        <th>Piloto</th>
+                        <th>Socio</th>
+                        <th>Estado</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                  <% @people.each do |person|%>
+                     <tr>
+                        <td><a href="<%= person_path(person) %>">Ver</a></td>
+                        <td><%= person.name %></td>
+                        <td><%= person.surname %></td>
+                        <td><%= person.id_number %></td>
+                        <td><%= person.mail %></td>
+                        <td><%= person.home %></td>
+                        <td><%= person.phone %></td>
+                        <td><%= person.age %></td>
+                        <td>
+                        <% if person.pilot %>
+                            <span>Si</span>
+                        <% else %>
+                            <span>No</span>
+                        <% end %>
+                        </td>
+                        <td>
+                        <% if person.guest %>
+                            <span>Si</span>
+                        <% else %>
+                            <span>No</span>
+                        <% end %>
+                        </td>
+                        <td>
+                        <% if person.status %>
+                            <span>Activo</span>
+                        <% else %>
+                            <span>Deshabilitado</span>
+                        <% end %>
+                        </td>
+                     </tr>
+                  <% end %>
+                  </tbody>
+               </table>
+            </div>
+            <!-- END table-responsive-->
+            <div class='row actions' style='margin-top: 30px'>
+              <div class='col-xs-10'>
+                  <%= link_to 'Nuevo', new_person_path, class: 'btn btn-success' %>
+                  <%= link_to 'Volver', root_path, class: 'btn btn-default' %>
+              </div>
+            </div>
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>
+</div>

@@ -1,0 +1,39 @@
+<h3>Crear nueva ticket de socio
+   <small>Llene el formulario con los datos necesarios para crear un ticket de socio</small>
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+   <div class="panel-heading">Crear nuevo ticket</div>
+   <div class="panel-body">
+      <%= form_for ticket_member, html: {class: 'form-horizontal'} do |f| %>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Socio</label>
+            <div class="col-lg-10">
+             <%= f.select :person_id, options_from_collection_for_select(Person.where(guest: true), :id, :complete_name_id_number), required:'required' %>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha</label>
+            <div class="col-lg-10">
+              <%= f.date_select :date, :order => [:day, :month, :year] %>
+             </div>
+         </div>
+         <div class="form-group">
+            <label class="col-lg-2 control-label">Precio</label>
+            <div class="col-lg-10">
+              <%= f.text_field :price, placeholder: 'Precio', class: 'form-control', required:'required' %>
+             </div>
+         </div>
+         <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+         		<%= f.submit 'Guardar Cobranza', class: 'btn btn-success'%>
+         		<% if ticket_member.new_record? %>
+         		  <%= link_to 'Volver', ticket_members_path, class: 'btn btn-danger' %>
+         		<% else %>
+         		  <%= link_to 'Volver', ticket_members_path(@ticket_member), class: 'btn btn-danger' %>
+         		<% end %>
+         	</div>
+         </div>
+      <% end %>
+   </div>
+</div>

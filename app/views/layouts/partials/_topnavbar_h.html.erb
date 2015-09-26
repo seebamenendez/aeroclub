@@ -1,0 +1,62 @@
+<!-- START Top Navbar-->
+<nav role="navigation" class="navbar topnavbar">
+   <!-- START navbar header-->
+   <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+      </button>
+      <a href="#/" class="navbar-brand">
+         <div class="brand-logo">
+            <img src="<%= image_path('angle/aeroclub.jpg') %>" alt="App Logo" width="100" height="50" class="img-responsive" />
+         </div>
+         <div class="brand-logo-collapsed">
+            <img src="<%= image_path('angle/aeroclub.jpg') %>" alt="App Logo" class="img-responsive" />
+         </div>
+      </a>
+   </div>
+   <!-- END navbar header-->
+   <!-- START Nav wrapper-->
+   <div class="navbar-collapse collapse">
+      <!-- START Left navbar-->
+      <ul class="nav navbar-nav">
+         <li><a href="/">Inicio</a></li>
+         <li><a href="<%= flights_path %>">Vuelos</a></li>
+         <li><a href="<%= flight_types_path %>">Tipos de vuelo</a></li>
+         <li><a href="<%= planes_path %>">Aviones</a></li>
+         <li><a href="<%= people_path %>">Personas</a></li>
+         <li><a href="<%= ticket_members_path %>">Facturas socios</a></li>
+         <li><a href="<%= ticket_flights_path %>">Facturas vuelos</a></li>
+         <li><a href="<%= services_path %>">Services</a></li>
+          <% if current_user.try(:Presidente?) %>
+           <li><a href="<%= lists_path %>">Listados</a></li>
+           <li><a href="<%= users_path %>">Usuarios</a></li>
+          <% end %>
+      </ul>
+      <!-- END Left navbar-->
+      <!-- START Right Navbar-->
+      <ul class="nav navbar-nav navbar-right">
+         <!-- START lock screen-->
+         <li>
+            <%= link_to(destroy_user_session_path, :method => :delete) do %>
+               <em class="icon-lock"></em>
+            <% end %>
+         </li>
+         
+      </ul>
+      <!-- END Right Navbar-->
+   </div>
+   <!-- END Nav wrapper-->
+   <!-- START Search form-->
+   <form role="search" action="search.html" class="navbar-form">
+      <div class="form-group has-feedback">
+         <input type="text" placeholder="Ingrese una nueva busqueda..." class="form-control" />
+         <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
+      </div>
+      <button type="submit" class="hidden btn btn-default">Enviar</button>
+   </form>
+   <!-- END Search form-->
+</nav>
+<!-- END Top Navbar-->

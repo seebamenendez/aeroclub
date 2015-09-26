@@ -1,0 +1,2 @@
+class FlightPersonController < ApplicationController
+end

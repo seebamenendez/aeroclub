@@ -1,0 +1,89 @@
+<h3>Detalles de
+   <small><%= @people.name %></small>
+</h3>
+
+<div class="panel">
+   <div class="panel-heading">Detalles de la persona</div>
+   <table id="plane" style="clear: both" class="table table-bordered table-striped">
+      <tbody>
+         <tr>
+            <td width="35%">Nombre</td>
+            <td width="65%"><strong><%= @people.name %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Apellido</td>
+            <td width="65%"><strong><%= @people.surname %></strong>
+            </td>
+         </tr>
+          <tr>
+            <td width="35%">Cedula</td>
+            <td width="65%"><strong><%= @people.id_number %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Email</td>
+            <td width="65%"><strong><%= @people.mail %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Direccion</td>
+            <td width="65%"><strong><%= @people.home %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Telefono</td>
+            <td width="65%"><strong><%= @people.phone %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Edad</td>
+            <td width="65%"><strong><%= @people.age %></strong>
+            </td>
+         </tr>
+         <tr>
+            <td width="35%">Es Piloto?</td>
+              <td width="65%"><strong><% if @people.pilot %></strong>
+                    <span><strong>Si</strong></span>
+                  <% else %>
+                    <span><strong>No</strong></span>
+                  <% end %>
+         </tr>
+         <tr>
+            <td width="35%">Es Socio?</td>
+              <td width="65%"><strong><% if @people.guest %></strong>
+                    <span><strong>Si</strong></span>
+                  <% else %>
+                    <span><strong>No</strong></span>
+                  <% end %>
+         </tr>
+          <tr>
+            <td width="35%">Estado</td>
+            <td width="65%"><strong><% if @people.status %></strong>
+                <span><strong>Activo</strong></span>
+              <% else %>
+                <span><strong>Deshabilitado</strong></span>
+              <% end %>
+            </td>
+         </tr>
+         <% if @people.pilot %>
+         <tr>
+            <td width="35%">Fecha de expedicion</td>
+            <td width="65%"><strong><%= @people.pilot_habilitation.date_start %></strong></td>
+         </tr>
+         <tr>
+            <td width="35%">Fecha de vencimiento</td>
+            <td width="65%"><strong><%= @people.pilot_habilitation.date_expiration %></strong></td>
+         </tr>
+         <% end %>
+      </tbody>
+   </table>
+</div>
+
+<a href="<%= edit_person_path(@people) %>" class='btn btn-success'>Modificar</a>
+
+<% if @people.pilot  %>
+<a href="<%= habilitation_path(@people.id) %>" class='btn btn-success'>Habilitacion</a>
+<% end %>
+<%= link_to 'Eliminar', @people, method: :delete, data: {confirm: "Estas seguro que quiere eliminar?"}, class: 'btn btn-danger' %>
+<%= link_to 'Volver', people_path, class: 'btn btn-default' %>
