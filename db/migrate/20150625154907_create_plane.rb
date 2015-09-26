@@ -1,6 +1,6 @@
 class CreatePlane < ActiveRecord::Migration
   def change
-    create_table :plane do |t|
+    create_table :planes do |t|
       t.string :name
       t.string :model
       t.integer :year
