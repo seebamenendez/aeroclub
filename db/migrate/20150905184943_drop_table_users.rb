@@ -1,6 +1,6 @@
 class DropTableUsers < ActiveRecord::Migration
   def change
-    if ActiveRecord::Base.connection.table_exist 'users'
+    if User.table_exists?
       drop_table :users
     end
   end
