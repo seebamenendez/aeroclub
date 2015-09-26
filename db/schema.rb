@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926134710) do
+ActiveRecord::Schema.define(version: 20150926175106) do
 
   create_table "flight_people", force: true do |t|
     t.integer  "flight_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20150926134710) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "matricula"
-    t.boolean  "status",      default: true
+    t.integer  "status",      default: 0
   end
 
   create_table "rol_functions", force: true do |t|

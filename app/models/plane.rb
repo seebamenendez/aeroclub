@@ -1,6 +1,7 @@
 class Plane < ActiveRecord::Base
   has_many :flights
   
+  enum status: [:Activo, :Deshabilitado]
   def self.custom_delete (plane)
     return true
   end

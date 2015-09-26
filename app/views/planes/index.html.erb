@@ -41,11 +41,7 @@
                         <td><%= plane.description %></td>
                         <td><%= plane.matricula %></td>
                         <td>
-                        <% if plane.status %>
-                            <span>Activo</span>
-                        <% else %>
-                            <span>Deshabilitado</span>
-                        <% end %>
+                          <%= plane.status %>
                         </td>
                      </tr>
                   <% end %>
