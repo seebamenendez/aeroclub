@@ -37,11 +37,8 @@
                         <td><%= flight_type.description %></td>
                         <td><%= flight_type.price %></td>
                         <td>
-                        <% if flight_type.status %>
-                            <span>Activo</span>
-                        <% else %>
-                            <span>Deshabilitado</span>
-                        <% end %>
+                        <%= flight_type.status %>
+                          
                         </td>
                      </tr>
                   <% end %>

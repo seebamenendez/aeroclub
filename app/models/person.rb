@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
   has_many :ticket_members
   has_one :pilot_habilitation
   
+  enum status: [:Activo, :Deshabilitado]
+  
   def self.search(query)
     if query.nil?
       return Person.all
@@ -23,7 +25,7 @@ class Person < ActiveRecord::Base
 
 
   def self.custom_delete(people)
-    people.status = false
+    people.status = 1
     return people.save
   end
   

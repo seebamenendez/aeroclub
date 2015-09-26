@@ -41,11 +41,7 @@
                         <td><%= service.try(:plane).try(:name) %></td>
                         <td><%= service.try(:plane).try(:matricula) %></td>
                         <td>
-                        <% if service.status %>
-                            <span>Activo</span>
-                        <% else %>
-                            <span>Deshabilitado</span>
-                        <% end %>
+                          <%= service.status %>
                         </td>
                      </tr>
                   <% end %>

@@ -62,11 +62,8 @@
                         <% end %>
                         </td>
                         <td>
-                        <% if person.status %>
-                            <span>Activo</span>
-                        <% else %>
-                            <span>Deshabilitado</span>
-                        <% end %>
+                        <%= person.status %>
+                            
                         </td>
                      </tr>
                   <% end %>

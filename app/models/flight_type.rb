@@ -1,7 +1,9 @@
 class FlightType < ActiveRecord::Base
 
+  enum status: [:Activo, :Deshabilitado]
+  
   def self.custom_delete(flight_type)
-    flight_type.status = false
+    flight_type.status = 1
     return flight_type.save
   end
 

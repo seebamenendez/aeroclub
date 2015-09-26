@@ -30,13 +30,7 @@
              <%= f.select :plane_id, options_from_collection_for_select(Plane.all, :id, :matricula) %>
             </div>
          </div>
-         <div class="form-group">
-            <label class="col-lg-2 control-label">Estado</label>
-            <div class="col-lg-10">
-              <strong>Activo?</strong>
-                  <%= f.check_box :status, class: 'form-control' %>
-            </div>
-         </div>
+         
 
 
          <div class="form-group">

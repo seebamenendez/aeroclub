@@ -1,8 +1,9 @@
 class Service < ActiveRecord::Base
   belongs_to :plane
+  enum status: [:Activo, :Deshabilitado]
   
   def self.custom_delete(service)
-    service.status = false
+    service.status = 1
     return service.save
   end
 

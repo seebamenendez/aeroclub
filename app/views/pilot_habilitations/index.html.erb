@@ -36,11 +36,8 @@
                         <td><%= pilot_hab.people.name %></td>
                         <td><%= pilot_hab.date_start %></td>
                         <td><%= pilot_hab.date_expiration %></td>
-                        <td><% if pilot_hab.status %>
-                                 Activo
-                               <% else %>
-                                 Pasivo 
-                               <% end %> 
+                        <td><%= pilot_hab.status %>
+                                
                         </td>
                      </tr>
                   <% end %>
