@@ -74,6 +74,19 @@ class TicketFlightsController < ApplicationController
       render 'edit'
     end
   end
+  
+  def finish
+   @ticket = TicketFlight.find(params[:id]) 
+   @ticket.status = 2
+   if @ticket.save
+      redirect_to ticket_flights_url()
+   
+    else
+      flash[:error] = 'Errores evitaron que se finalizara la factura vuelo.'
+      redirect_to ticket_flights_url()
+    end
+  
+  end
 
   def destroy
     Rails.logger.info "Eliminando factura"

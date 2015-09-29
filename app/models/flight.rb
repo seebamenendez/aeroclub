@@ -37,7 +37,7 @@ class Flight < ActiveRecord::Base
   
   
   def self.custom_delete(flight)
-    flight.status = false
+    flight.status = 1
     return flight.save
   end
 

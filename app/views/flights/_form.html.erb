@@ -26,7 +26,7 @@
             </div>
          </div>
          <div class="form-group">
-            <label class="col-lg-2 control-label">Combustible que se cargo</label>
+            <label class="col-lg-2 control-label">Combustible que se cargo (Litros)</label>
             <div class="col-lg-10">
               <%= f.text_field :fuel_charged, placeholder: 'Combustible cargado', class: 'form-control', required:'required' %>
             </div>
@@ -34,6 +34,11 @@
          <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
             <%= f.submit 'Guardar', class: 'btn btn-success'%>
+            <% if flights.new_record? %>
+         		  <%= link_to 'Volver', flights_path, class: 'btn btn-danger' %>
+         		<% else %>
+         		  <%= link_to 'Volver', flights_path(flight), class: 'btn btn-danger' %>
+         		<% end %>
             </div>
          </div>
       <% end %>

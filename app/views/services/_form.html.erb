@@ -15,7 +15,7 @@
          <div class="form-group">
             <label class="col-lg-2 control-label">Descripcion</label>
             <div class="col-lg-10">
-              <%= f.text_area :description, :cols => 144, :rows => 7 %>
+              <%= f.text_area :description, :cols => 122, :rows => 7 %>
              </div>
          </div>
          <div class="form-group">
@@ -35,7 +35,7 @@
 
          <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-         		<%= f.submit 'Guardar Service', class: 'btn btn-default'%>
+         		<%= f.submit 'Guardar Service', class: 'btn btn-success'%>
          		<% if service.new_record? %>
          		  <%= link_to 'Volver', services_path, class: 'btn btn-danger' %>
          		<% else %>

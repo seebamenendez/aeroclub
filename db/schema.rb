@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926182254) do
+ActiveRecord::Schema.define(version: 20150928201654) do
 
   create_table "flight_people", force: true do |t|
     t.integer  "flight_id"
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20150926182254) do
     t.integer  "person_id"
     t.date     "date"
     t.integer  "flight_type_id"
-    t.integer  "time_fly",       limit: 255
+    t.integer  "time_fly"
     t.string   "km_start"
     t.string   "km_end"
     t.integer  "fuel_charged"
-    t.integer  "status",                     default: 0
+    t.integer  "status",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,18 +74,6 @@ ActiveRecord::Schema.define(version: 20150926182254) do
     t.integer  "status",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "pilotos", force: true do |t|
-    t.string   "nombre"
-    t.string   "apellido"
-    t.integer  "edad"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "status"
-    t.integer  "cedula"
-    t.string   "telefono"
-    t.string   "email"
   end
 
   create_table "planes", force: true do |t|

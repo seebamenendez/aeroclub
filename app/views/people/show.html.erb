@@ -59,21 +59,17 @@
          </tr>
           <tr>
             <td width="35%">Estado</td>
-            <td width="65%"><strong><% if @people.status %></strong>
-                <span><strong>Activo</strong></span>
-              <% else %>
-                <span><strong>Deshabilitado</strong></span>
-              <% end %>
+            <td width="65%"><strong><%= @people.status %></strong>
             </td>
          </tr>
          <% if @people.pilot %>
          <tr>
             <td width="35%">Fecha de expedicion</td>
-            <td width="65%"><strong><%= @people.pilot_habilitation.date_start %></strong></td>
+            <td width="65%"><strong><%= @people.try(:pilot_habilitation).try(:date_start) %></strong></td>
          </tr>
          <tr>
             <td width="35%">Fecha de vencimiento</td>
-            <td width="65%"><strong><%= @people.pilot_habilitation.date_expiration %></strong></td>
+            <td width="65%"><strong><%= @people.try(:pilot_habilitation).try(:date_expiration) %></strong></td>
          </tr>
          <% end %>
       </tbody>

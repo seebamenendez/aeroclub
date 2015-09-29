@@ -62,18 +62,23 @@ class UsersController < ApplicationController
   end
   
   def recover
-  
+    render 'recover', layout: 'application'
   end
   
   def do_recover
     user = User.where(email: params[:email]).first
-    user.password = params[:password]
-    user.password_confirmation = params[:password_confirmation]
-    if user.save() 
-      redirect_to root_path
+    if user
+      user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]
+      if user.save() 
+        redirect_to root_path
+      else
+        flash[:error] = 'Errores evitaron que se reiniciara su clave.'
+        render 'recover', layout: 'application'
+      end
     else
       flash[:error] = 'Errores evitaron que se reiniciara su clave.'
-      render 'recover'
+      render 'recover', layout: 'application'
     end
   end
 

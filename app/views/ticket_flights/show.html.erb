@@ -55,8 +55,6 @@
     <% if @ticket.Deshabilitado? %>
       <%= link_to 'Activar', ticket_flights_activar_path(@ticket.id), method: :put, data: {confirm: "Estas seguro que quiere activar?"}, class: 'btn btn-info' %>
     <% end %>
-
-<%= link_to 'Eliminar', @ticket, method: :delete, data: {confirm: "Estas seguro que quiere eliminar?"}, class: 'btn btn-danger' %>
 <%= link_to 'Volver', ticket_flights_path, class: 'btn btn-default' %>
 
 

@@ -33,11 +33,7 @@
          </tr>
          <tr>
             <td width="35%">Estado</td>
-            <td width="65%"><strong><% if @plane.status %></strong>
-                    <span>Activo</span>
-                  <% else %>
-                    <span>Deshabilitado</span>
-                  <% end %>
+            <td width="65%"><strong><%= @plane.status %></strong>
             </td>
             </td>
          </tr>
@@ -46,6 +42,5 @@
 </div>
 
 <a href="<%= edit_plane_path(@plane) %>" class='btn btn-success'>Modificar</a>
-
 <%= link_to 'Eliminar', @plane, method: :delete, data: {confirm: "Estas seguro que quiere eliminar?"}, class: 'btn btn-danger' %>
 <%= link_to 'Volver', planes_path, class: 'btn btn-default' %>

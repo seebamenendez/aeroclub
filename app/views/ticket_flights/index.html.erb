@@ -39,7 +39,8 @@
                         <td><a href="<%= ticket_flight_path(ticket) %>">Ver</a>
                           <% if ticket.Activo? %>
                             /
-                            <a href="<%= ticket_flight_finish_path(ticket.id) %>">Pagar vuelo</a>
+                            
+                            <%= link_to 'Pagar Vuelo', ticket_flights_finish_path(ticket.id), method: :put, data: { confirm: "Esta seguro?" } %>
                           <% end %>
                         </td>
                         <td><%= ticket.try(:flight).try(:date) %></td>
@@ -47,7 +48,7 @@
                         <td><%= ticket.try(:plane).try(:name) %></td>
                         <td><%= ticket.try(:plane).try(:matricula) %></td>
                         <td><%= ticket.try(:flight_type).try(:name_flight) %></td>
-                        <td><%= ticket.try(:flight).try(:time_flight) %> <span>minutos</span></td>
+                        <td><%= ticket.time_fly %> <span>minutos</span></td>
                         <td><%= ticket.price %></td>
                         <td><%= ticket.status %></td>
                      </tr>

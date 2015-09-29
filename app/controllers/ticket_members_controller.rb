@@ -48,6 +48,19 @@ layout 'application-h'
   render 'edit'
   end
   end
+  
+  def finish
+   @ticket = TicketMember.find(params[:id]) 
+   @ticket.status = 2
+   if @ticket.save
+      redirect_to ticket_members_url()
+   
+    else
+      flash[:error] = 'Errores evitaron que se finalizara la factura vuelo.'
+      redirect_to ticket_members_url()
+    end
+  
+  end
 
   def destroy
   Rails.logger.info "Eliminando el ticket del socio."

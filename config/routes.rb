@@ -42,9 +42,11 @@ Rails.application.routes.draw do
   put 'flights/:id/activar' => 'flights#activar', as: :flight_activar
 
   put 'ticket_flights/:id/deshabilitar' => 'ticket_flights#deshabilitar', as: :ticket_flights_deshabilitar
-  put 'ticket_flights/:id/activar' => 'ticket_flights#activar', as: :ticket_flight_activar
-  get 'ticket_flights/:id/finish' => 'ticket_flights#finish', as: :ticket_flight_finish
+  put 'ticket_flights/:id/activar' => 'ticket_flights#activar', as: :ticket_flights_activar
+  put 'ticket_flights/:id/finish' => 'ticket_flights#finish', as: :ticket_flights_finish
 
+  put 'ticket_members/:id/finish' => 'ticket_members#finish', as: :ticket_members_finish
+  
   get 'information/top_time' => 'lists#top_time', as: :top_time
   get 'information/people_with_debt' => 'lists#debt', as: :debt
   get 'information/monthly(/:year/:month)' => 'lists#monthly', as: :monthly

@@ -12,10 +12,10 @@ class PlanesController < ApplicationController
 
 
   def create
-    @plane = Plane.new (plane_params)
-    if @plane.save
+    @planes = Plane.new (plane_params)
+    if @planes.save
       flash[:success] = 'Avion creado correctamente.'
-      redirect_to plane_url(@plane)
+      redirect_to plane_url(@planes)
     else
       flash[:error] = 'Errores evitaron que se grabara el avion.'
       render 'new'

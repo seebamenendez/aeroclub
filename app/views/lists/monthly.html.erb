@@ -6,9 +6,9 @@
 
 
       <%= form_tag(monthly_path, method: 'get') do  %>
-        <%= text_field_tag :year,'',  placeholder: 'Year...', :size => 40 %>
+        <%= text_field_tag :year,'',  placeholder: 'Año (Ejemplo: 08)', :size => 40 %>
 
-        <%= text_field_tag :month,'',  placeholder: 'Month...', :size => 40 %>
+        <%= text_field_tag :month,'',  placeholder: 'Mes (Ejemplo: 2015)', :size => 40 %>
         <%= button_tag 'Buscar', type: 'submit',  class: 'btn btn-info btn-lg' %>
       <% end %>
 

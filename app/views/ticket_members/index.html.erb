@@ -34,7 +34,14 @@
                   <tbody>
                   <% @ticket_members.each do |ticket|%>
                      <tr>
-                        <td><a href="<%= ticket_member_path(ticket) %>">Ver</a></td>
+                        <td><a href="<%= ticket_member_path(ticket) %>">Ver</a>
+                        <% if ticket.Activo? %>
+                        /
+                        
+                        <%= link_to 'Pagar Mes', ticket_members_finish_path(ticket.id), method: :put, data: { confirm: "Esta seguro?" } %>
+                        <% end %>
+                        
+                        </td>
                         <td><%= ticket.person.name %></td>
                         <td><%= ticket.person.surname %></td>
                         <td><%= ticket.person.id_number %></td>

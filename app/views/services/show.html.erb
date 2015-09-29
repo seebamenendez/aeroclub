@@ -28,11 +28,7 @@
          </tr>
          <tr>
             <td width="35%">Estado</td>
-            <td width="65%"><strong><% if @service.status %></strong>
-                <span>Activo</span>
-              <% else %>
-                <span>Deshabilitado</span>
-              <% end %>
+            <td width="65%"><strong><%= @service.status %></strong>
             </td>
          </tr>
       </tbody>

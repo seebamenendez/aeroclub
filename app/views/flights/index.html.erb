@@ -30,7 +30,7 @@
                         <th>Matricula</th>
                         <th>Fecha</th>
                         <th>Tipo de vuelo</th>
-                        <th>Combustible cargado</th>
+                        <th>Combustible cargado (Litros)</th>
                         <th>Estado</th>
                      </tr>
                   </thead>
@@ -48,7 +48,7 @@
                         <td><%= flight.plane.matricula %></td>
                         <td><%= flight.date %></td>
                         <td><%= flight.flight_type.name_flight %></td>
-                        <td><%= flight.fuel_charged %></td>
+                        <td><%= flight.fuel_charged %> litros</td>
                         <td><%= flight.status %></td>
                      </tr>
                   <% end %>
